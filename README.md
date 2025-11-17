@@ -1,3 +1,4 @@
+## Em Desenvolvimento
 # 🍔 LanchesMais - Sistema de Gerenciamento e Pedidos Online
 
 Este é o repositório front-end do **LanchesMais**, uma plataforma completa para gerenciamento de unidades de franquia. Construído com HTML e CSS puro (com previsão de integração com JavaScript/Backend).
