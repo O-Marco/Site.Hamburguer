@@ -1,0 +1,445 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard - Área do Dono</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/dashboard-style.css">
+</head>
+
+<body>
+
+    <div class="dashboard-wrapper">
+
+        <aside class="sidebar">
+            <div class="logo-area">
+                <h1>Admin</h1>
+            </div>
+
+            <nav class="main-menu">
+                <ul>
+                    <li><a href="#" class="menu-item" data-content="gerenciar-cardapio">
+                            <img src="imagemmm/icone-cardapio.png" alt="Cardápio" class="menu-icon">
+                            <span>Gerenciar Cardápio</span>
+                        </a></li>
+                    <li><a href="#" class="menu-item active" data-content="visao-geral">
+                            <img src="imagemmm/icone-cardapio.png" alt="Visão Geral" class="menu-icon">
+                            <span>Visão Geral</span>
+                        </a></li>
+
+                    <li><a href="#" class="menu-item" data-content="pedidos">
+                            <img src="imagemmm/icone-pedido.png" alt="Pedidos" class="menu-icon">
+                            <span>Pedidos Ativos</span>
+                        </a></li>
+
+                    <li><a href="#" class="menu-item" data-content="estoque">
+                            <img src="imagemmm/icone-sobremesas.png" alt="Estoque" class="menu-icon">
+                            <span>Estoque</span>
+                        </a></li>
+
+                    <li><a href="#" class="menu-item" data-content="financeiro">
+                            <img src="imagemmm/icone-promocoes.png" alt="Financeiro" class="menu-icon">
+                            <span>Financeiro</span>
+                        </a></li>
+
+                    <li><a href="#" class="menu-item" data-content="suporte">
+                            <img src="imagemmm/icone-contato.png" alt="Suporte" class="menu-icon">
+                            <span>Suporte</span>
+                        </a></li>
+                </ul>
+            </nav>
+
+            <div class="logout-area">
+                <a href="login.html" class="btn-logout">Sair</a>
+            </div>
+        </aside>
+
+        <main class="main-content">
+
+            <header class="content-header">
+                <h2>Painel de Controle da Unidade [Nome da Loja]</h2>
+                <div class="user-info">
+                    <p>Olá, Franqueado(a)!</p>
+                    <img src="imagemmm/icone-franqueado.png" alt="Perfil" class="profile-icon">
+                </div>
+            </header>
+
+            <div class="content-area">
+                <div id="gerenciar-cardapio" class="tab-content">
+                    <h3>Gerenciar Produtos do Cardápio</h3>
+
+                    <button class="btn-principal btn-adicionar">
+                        <span style="font-size: 20px; vertical-align: middle; margin-right: 5px;">+</span> Adicionar
+                        Novo Produto
+                    </button>
+
+                    <div class="cardapio-gerenciamento-tabela">
+                        <table id="tabela-produtos">
+                            <thead>
+                                <tr>
+                                    <th>ID</th>
+                                    <th>Nome do Produto</th>
+                                    <th>Categoria</th>
+                                    <th>Preço (R$)</th>
+                                    <th>Ações</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr data-id="1">
+                                    <td>1</td>
+                                    <td>Smash Bacon</td>
+                                    <td>Burgers</td>
+                                    <td>25,00</td>
+                                    <td>
+                                        <button class="btn-acao btn-editar">Editar</button>
+                                        <button class="btn-acao btn-excluir">Excluir</button>
+                                    </td>
+                                </tr>
+                                <tr data-id="2">
+                                    <td>2</td>
+                                    <td>Coca-Cola Lata</td>
+                                    <td>Bebidas</td>
+                                    <td>7,00</td>
+                                    <td>
+                                        <button class="btn-acao btn-editar">Editar</button>
+                                        <button class="btn-acao btn-excluir">Excluir</button>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+                <div id="visao-geral" class="tab-content active">
+                    <h3>Visão Geral da Operação</h3>
+
+                    <div class="kpi-grid">
+                        <div class="kpi-card" style="border-left-color: #ffcc00;">
+                            <p class="kpi-label">Pedidos Hoje</p>
+                            <p class="kpi-value">52</p>
+                            <span class="kpi-delta positivo">+8% vs. Ontem</span>
+                        </div>
+                        <div class="kpi-card" style="border-left-color: #2ecc71;">
+                            <p class="kpi-label">Faturamento Hoje</p>
+                            <p class="kpi-value">R$ 2.750,00</p>
+                            <span class="kpi-delta positivo">+15% vs. Média</span>
+                        </div>
+                        <div class="kpi-card" style="border-left-color: #b21f24;">
+                            <p class="kpi-label">Itens Mais Vendidos</p>
+                            <p class="kpi-value">Smash Bacon</p>
+                            <span class="kpi-delta negativo">4 Pedidos Perdidos (Ontem)</span>
+                        </div>
+                    </div>
+
+                    <div class="alertas-e-acoes">
+                        <div class="alerta-card status-urgente">
+                            <h4>🚨 Alerta de Estoque Crítico</h4>
+                            <p>O nível de **Molho Especial** está no limite. Faça um pedido de reposição imediato.</p>
+                            <button class="btn-acao btn-atencao"
+                                onclick="document.querySelector('[data-content=\'estoque\']').click()">
+                                Ir para Reposição
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <div id="pedidos" class="tab-content">
+                    <h3>Pedidos Ativos e em Andamento</h3>
+
+                    <div class="status-filtros">
+                        <button class="btn-filtro active" data-status="todos">Todos (3)</button>
+                        <button class="btn-filtro" data-status="novo">Novos (1)</button>
+                        <button class="btn-filtro" data-status="preparando">Em Preparo (1)</button>
+                        <button class="btn-filtro" data-status="entrega">Em Entrega (1)</button>
+                    </div>
+
+                    <div class="pedidos-lista">
+
+                        <div class="pedido-card status-novo" data-id="101">
+                            <div class="pedido-header">
+                                <span class="pedido-numero">PEDIDO #101</span>
+                                <span class="pedido-status novo">Novo Pedido</span>
+                            </div>
+                            <p class="pedido-detalhe">Cliente: João S. | Tempo: 5 min atrás</p>
+                            <p class="pedido-detalhe">Total: R$ 58,00 | Pagamento: Cartão Crédito</p>
+
+                            <ul class="itens-pedido">
+                                <li>1x Smash Bacon</li>
+                                <li>1x Batata Rústica M</li>
+                                <li>1x Coca-Cola Lata</li>
+                            </ul>
+
+                            <div class="pedido-acoes">
+                                <button class="btn-acao btn-ver-detalhes">Detalhes</button>
+                                <button class="btn-acao btn-avancar-status" data-next-status="preparando">
+                                    Iniciar Preparo
+                                </button>
+                            </div>
+                        </div>
+
+                        <div class="pedido-card status-preparando" data-id="102">
+                            <div class="pedido-header">
+                                <span class="pedido-numero">PEDIDO #102</span>
+                                <span class="pedido-status preparando">Em Preparo</span>
+                            </div>
+                            <p class="pedido-detalhe">Cliente: Maria L. | Tempo: 12 min em preparo</p>
+                            <p class="pedido-detalhe">Total: R$ 42,50 | Pagamento: Pix</p>
+
+                            <ul class="itens-pedido">
+                                <li>1x Burger Pinguim Veggie</li>
+                                <li>1x Milkshake Chocolate</li>
+                            </ul>
+
+                            <div class="pedido-acoes">
+                                <button class="btn-acao btn-ver-detalhes">Detalhes</button>
+                                <button class="btn-acao btn-avancar-status" data-next-status="entrega">
+                                    Marcar como Pronto
+                                </button>
+                            </div>
+                        </div>
+
+                        <div class="pedido-card status-entrega" data-id="103">
+                            <div class="pedido-header">
+                                <span class="pedido-numero">PEDIDO #103</span>
+                                <span class="pedido-status entrega">Em Entrega</span>
+                            </div>
+                            <p class="pedido-detalhe">Cliente: Pedro V. | Entregador: Carlos</p>
+                            <p class="pedido-detalhe">Total: R$ 78,90 | Pagamento: Dinheiro (Troco para R$ 100)</p>
+
+                            <div class="pedido-acoes">
+                                <button class="btn-acao btn-ver-detalhes">Detalhes</button>
+                                <button class="btn-acao btn-avancar-status" data-next-status="concluido"
+                                    style="background-color: green;">
+                                    Finalizar Pedido
+                                </button>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+
+                <div id="estoque" class="tab-content">
+                    <h3>Controle de Estoque e Reposição de Insumos</h3>
+
+                    <div class="estoque-grid">
+
+                        <div class="estoque-inventario">
+                            <h4>Inventário de Insumos Críticos</h4>
+
+                            <table class="tabela-inventario">
+                                <thead>
+                                    <tr>
+                                        <th>Insumo</th>
+                                        <th>Nível Atual</th>
+                                        <th>Alerta</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr data-nivel="alto">
+                                        <td>Carne (Blend da Casa)</td>
+                                        <td>90 kg</td>
+                                        <td class="status-alto">Alto</td>
+                                    </tr>
+                                    <tr data-nivel="medio">
+                                        <td>Pão Brioche</td>
+                                        <td>150 un.</td>
+                                        <td class="status-medio">Médio</td>
+                                    </tr>
+                                    <tr data-nivel="baixo">
+                                        <td>Queijo Cheddar</td>
+                                        <td>20 kg</td>
+                                        <td class="status-baixo">Baixo</td>
+                                    </tr>
+                                    <tr data-nivel="urgente">
+                                        <td>Molho Especial</td>
+                                        <td>5 Litros</td>
+                                        <td class="status-urgente">Urgente!</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+
+                        <div class="estoque-reposicao">
+                            <h4>Solicitação de Reposição</h4>
+
+                            <form id="form-reposicao">
+                                <div class="input-group-modal">
+                                    <label for="insumo-selecao">Insumo:</label>
+                                    <select id="insumo-selecao" required>
+                                        <option value="">Selecione o Insumo</option>
+                                        <option value="Carne">Carne (Blend da Casa)</option>
+                                        <option value="Pao">Pão Brioche</option>
+                                        <option value="Cheddar">Queijo Cheddar</option>
+                                        <option value="Molho">Molho Especial</option>
+                                        <option value="Outro">Outro (Especifique na descrição)</option>
+                                    </select>
+                                </div>
+
+                                <div class="input-group-modal">
+                                    <label for="quantidade-solicitada">Quantidade Solicitada:</label>
+                                    <input type="number" id="quantidade-solicitada" required
+                                        placeholder="Ex: 50 (para kg ou un.)">
+                                </div>
+
+                                <div class="input-group-modal">
+                                    <label for="detalhes-reposicao">Observações (Urgência, Especificações):</label>
+                                    <textarea id="detalhes-reposicao" rows="3"></textarea>
+                                </div>
+
+                                <button type="submit" class="btn-principal btn-solicitar">
+                                    Enviar Pedido de Reposição
+                                </button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+
+                <div id="financeiro" class="tab-content">
+                    <h3>Relatórios de Vendas e Desempenho</h3>
+
+                    <div class="kpi-grid">
+                        <div class="kpi-card">
+                            <p class="kpi-label">Faturamento Mês (Atual)</p>
+                            <p class="kpi-value">R$ 45.680,00</p>
+                            <span class="kpi-delta positivo">+12% vs. Mês Anterior</span>
+                        </div>
+                        <div class="kpi-card">
+                            <p class="kpi-label">Ticket Médio (Mês)</p>
+                            <p class="kpi-value">R$ 55,20</p>
+                            <span class="kpi-delta negativo">-1,5% vs. Mês Anterior</span>
+                        </div>
+                        <div class="kpi-card">
+                            <p class="kpi-label">Taxa de Conversão</p>
+                            <p class="kpi-value">68%</p>
+                            <span class="kpi-delta positivo">+4% vs. Mês Anterior</span>
+                        </div>
+                    </div>
+
+                    <h4>Histórico de Relatórios de Vendas</h4>
+
+                    <div class="relatorio-controles">
+                        <select>
+                            <option>Filtro por: Mês</option>
+                            <option>Filtro por: Ano</option>
+                        </select>
+                        <button class="btn-principal btn-exportar">Exportar (CSV/PDF)</button>
+                    </div>
+
+                    <div class="relatorio-tabela-container">
+                        <table class="tabela-relatorios">
+                            <thead>
+                                <tr>
+                                    <th>Período</th>
+                                    <th>Vendas Brutas (R$)</th>
+                                    <th>Taxas (R$)</th>
+                                    <th>Lucro Líquido (R$)</th>
+                                    <th>Status</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>Setembro/2025</td>
+                                    <td>62.500,00</td>
+                                    <td>-8.750,00</td>
+                                    <td>53.750,00</td>
+                                    <td class="status-concluido">Fechado</td>
+                                </tr>
+                                <tr>
+                                    <td>Agosto/2025</td>
+                                    <td>58.900,00</td>
+                                    <td>-8.246,00</td>
+                                    <td>50.654,00</td>
+                                    <td class="status-concluido">Fechado</td>
+                                </tr>
+                                <tr>
+                                    <td>Julho/2025</td>
+                                    <td>45.680,00</td>
+                                    <td>-6.395,20</td>
+                                    <td>39.284,80</td>
+                                    <td class="status-pendente">Aguardando Auditoria</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                </div>
+
+                <div id="suporte" class="tab-content">
+    <h3>Central de Suporte ao Franqueado</h3>
+
+    <div class="suporte-contato" style="max-width: 600px; margin: 0 auto;">
+        <h4>Abrir Chamado de Suporte</h4>
+        <p style="color: #ccc; margin-bottom: 20px;">Use este formulário para relatar problemas técnicos, dúvidas financeiras ou questões operacionais à franqueadora.</p>
+        
+        <form id="form-suporte">
+            <div class="input-group-modal">
+                <label for="assunto-suporte">Assunto:</label>
+                <select id="assunto-suporte" required>
+                    <option value="">Selecione o Assunto</option>
+                    <option value="Tecnico">Problema Técnico (Sistema/App)</option>
+                    <option value="Insumo">Problema com Insumos/Fornecedor</option>
+                    <option value="Financeiro">Dúvida Financeira/Faturamento</option>
+                    <option value="Geral">Questão Administrativa/Geral</option>
+                </select>
+            </div>
+            
+            <div class="input-group-modal">
+                <label for="mensagem-suporte">Descreva o Problema Detalhadamente:</label>
+                <textarea id="mensagem-suporte" rows="6" required></textarea>
+            </div>
+
+            <button type="submit" class="btn-principal btn-solicitar">
+                Enviar Chamado
+            </button>
+        </form>
+    </div>
+</div>
+
+            </div>
+        </main>
+    </div>
+
+    <div id="product-modal" class="modal">
+        <div class="modal-content">
+            <span class="close-button">&times;</span>
+            <h3 id="modal-title">Adicionar Novo Produto</h3>
+
+            <form id="product-form">
+                <div class="input-group-modal">
+                    <label for="product-name">Nome do Produto:</label>
+                    <input type="text" id="product-name" name="name" required>
+                </div>
+
+                <div class="input-group-modal">
+                    <label for="product-category">Categoria:</label>
+                    <select id="product-category" name="category" required>
+                        <option value="">Selecione a Categoria</option>
+                        <option value="Burgers">Burgers</option>
+                        <option value="Bebidas">Bebidas</option>
+                        <option value="Sobremesas">Sobremesas</option>
+                        <option value="Porcoes">Porções</option>
+                    </select>
+                </div>
+
+                <div class="input-group-modal">
+                    <label for="product-price">Preço (R$):</label>
+                    <input type="number" step="0.01" id="product-price" name="price" required>
+                </div>
+
+                <div class="input-group-modal">
+                    <label for="product-image">URL da Imagem:</label>
+                    <input type="text" id="product-image" name="image_url">
+                    <small>Cole o link direto da imagem (Ex: img/meu-burger.jpg)</small>
+                </div>
+
+                <button type="submit" class="btn-principal btn-salvar">Salvar Produto</button>
+                <input type="hidden" id="product-id" name="id">
+            </form>
+        </div>
+    </div>
+
+<script src="js/dashboard.js"></script>
+</body>
+
+</html>

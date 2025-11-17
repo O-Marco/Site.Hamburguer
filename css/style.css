@@ -1,0 +1,869 @@
+/* Importando uma fonte similar à da imagem */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap');
+
+/* --- Reset Básico e Variáveis --- */
+:root {
+    --cor-preto-quadro: #1a1a1a;
+    --cor-laranja-hover: #ff9900;
+    --primary-color: #FFC72C; /* Amarelo/Dourado dos botões */
+    --secondary-color: #4A4A4A; /* Cinza/Escuro para botões secundários */
+    --text-light: #FFFFFF;
+    --text-dark: #333333;
+    --font-family: 'Poppins', sans-serif;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: var(--font-family);
+    color: var(--text-dark);
+}
+html, body {
+    margin: 0;
+    padding: 0;
+    /* Impede estritamente o scroll horizontal em todo o documento. 
+       Use com cautela, mas resolve o problema de bordas laterais. */
+    overflow-x: hidden; 
+}
+
+/* --- Hero Section (A Tela Principal) --- */
+.hero {
+    /* Define a altura mínima da tela cheia (Viewport Height) */
+    min-height: 100vh; 
+    
+    /* Substitua pelo caminho da sua imagem de hambúrguer */
+    background: url('../img/food-photo-8683701_1280.jpg') no-repeat center center/cover;
+    
+    /* Layout para centralizar o conteúdo */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative; /* Para posicionar o overlay */
+    text-align: center;
+    padding: 20px;
+}
+
+/* Camada de Sobreposição Escura (para melhorar a leitura do texto) */
+.overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    /* Cor escura transparente para dar o "mood" da foto */
+    background: rgba(0, 0, 0, 0.5); 
+    z-index: 1;
+}
+
+/* Conteúdo centralizado */
+.content {
+    position: relative;
+    z-index: 2; /* Fica acima do overlay */
+    max-width: 600px;
+}
+
+.content h1 {
+    font-size: 4rem; /* Tamanho do título */
+    font-weight: 700;
+    color: var(--text-light);
+    margin-bottom: 0.5rem;
+    /* Adicionando um leve brilho/sombra para destacar na imagem */
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7); 
+}
+
+.slogan {
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: var(--text-light);
+    margin-bottom: 1.5rem;
+}
+
+.description {
+    font-size: 1rem;
+    color: var(--text-light);
+    margin-bottom: 2.5rem;
+    line-height: 1.5;
+}
+
+/* --- Botões de Ação --- */
+.buttons {
+    display: flex;
+    justify-content: center;
+    gap: 20px; /* Espaço entre os botões */
+}
+
+.btn {
+    display: inline-block;
+    padding: 15px 30px;
+    border-radius: 8px; /* Cantos arredondados */
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 1.1rem;
+    transition: all 0.3s ease;
+    border: 2px solid transparent; /* Para evitar o "salto" no hover */
+}
+
+/* Botão Principal (Fazer Pedido) */
+.btn-primary {
+    background-color: var(--primary-color);
+    color: var(--text-dark);
+    border-color: var(--primary-color);
+}
+
+.btn-primary:hover {
+    background-color: #e6b200; /* Um pouco mais escuro no hover */
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+/* Botão Secundário (Área do Dono) */
+.btn-secondary {
+    background-color: transparent;
+    color: var(--text-light);
+    border-color: var(--text-light); /* Borda branca como na imagem */
+}
+
+.btn-secondary:hover {
+    background-color: rgba(255, 255, 255, 0.1); /* Um leve fundo no hover */
+    color: var(--primary-color);
+    border-color: var(--primary-color);
+}
+
+/* --- Responsividade (Ajustes para Telas Menores) --- */
+@media (max-width: 768px) {
+    .content h1 {
+        font-size: 3rem;
+    }
+
+    .slogan {
+        font-size: 1rem;
+    }
+
+    .description {
+        font-size: 0.9rem;
+    }
+    
+    .buttons {
+        /* Empilha os botões em telas menores */
+        flex-direction: column; 
+        gap: 15px;
+    }
+    
+    .btn {
+        width: 100%; /* Botões ocupam a largura total */
+        padding: 12px 20px;
+        font-size: 1rem;
+    }
+}
+
+/* Definições de Cores e Estilos Base */
+:root {
+    --cor-verde: #385e49; /* Cor base dos ícones */
+    --cor-laranja-hover: #ffad42; /* Cor de destaque (hover) */
+    --cor-preto-quadro: #1d1d1d; /* Fundo escuro */
+    --cor-vermelho-titulo: #a33e38; /* Cor do detalhe no título */
+    --cor-texto-claro: #f0f0f0;
+}
+
+/* ---------------------------------- */
+/* 1. SEÇÃO CARDÁPIO E FUNDO */
+/* ---------------------------------- */
+
+#cardapio {
+    position: relative;
+    overflow: hidden; /* Para garantir que os detalhes decorativos não causem scroll indesejado */
+    
+}
+
+.cardapio-fundo {
+    /* Fundo de Quadro-Negro */
+    background: var(--cor-preto-quadro) url('imagemmm/bg-cardapio.jpg') repeat; /* */
+    background-size: cover;
+    padding: 80px 0;
+    position: relative;
+}
+
+.cardapio-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+    text-align: center;
+    position: relative;
+}
+
+/* ---------------------------------- */
+/* BASE DO ITEM DE CARDÁPIO */
+/* ---------------------------------- */
+.cardapio-item {
+    position: relative; /* CHAVE: Permite o posicionamento do overlay */
+    overflow: hidden;
+    border-radius: 5px;
+    cursor: pointer; /* Indica que é interativo */
+}
+
+.cardapio-item .produto-foto {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    /* Transição para suavizar o zoom */
+    transition: transform 0.4s ease;
+}
+
+
+/* ---------------------------------- */
+/* ESTILOS DA CAMADA DE OVERLAY */
+/* ---------------------------------- */
+.item-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    
+    /* Fundo da Máscara: Cinza/Branco semitransparente */
+    background: rgba(255, 255, 255, 0.2); 
+    
+    /* CHAVE: Aplica o desfoque no fundo */
+    backdrop-filter: blur(5px); 
+    -webkit-backdrop-filter: blur(5px); /* Suporte WebKit (Safari) */
+    
+    /* Esconde o overlay por padrão */
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.4s ease, visibility 0.4s ease;
+    
+    /* Alinha o Texto no Centro (como na imagem) */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    z-index: 5; /* Garante que o overlay fique acima da imagem */
+}
+
+/* Estilo do Texto Central */
+.item-overlay .overlay-nome {
+    color: var(--cor-texto-claro);
+    font-size: 30px;
+    font-weight: bold;
+    margin-top: 10px;
+    transform: translateY(10px); 
+    opacity: 0;
+    /* Adiciona transição para as propriedades que serão animadas */
+    transition: opacity 0.4s ease 0.1s, transform 0.4s ease 0.1s; /* O delay (0.1s) faz aparecer depois do overlay */
+
+}
+
+/* Estilo Opcional do Preço no Overlay (se você mantiver) */
+.item-overlay .overlay-preco {
+    color: var(--primary-color); /* Cor do texto no hover */
+    font-size: 28px;
+    font-weight: bold;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    text-shadow: 0 0 10px rgba(0, 0, 0, 0.5); /* Sombra para destacar */
+    transform: translateY(10px); 
+    opacity: 0;
+    /* Adiciona transição para as propriedades que serão animadas */
+    transition: opacity 0.4s ease 0.2s, transform 0.4s ease 0.2s; /* Delay (0.2s) faz aparecer depois do nome */
+
+}
+
+/* ---------------------------------- */
+/* EFEITO HOVER (AÇÃO) */
+/* ---------------------------------- */
+
+.cardapio-item:hover .item-overlay {
+    /* Mostra a máscara e o desfoque */
+    opacity: 1;
+    visibility: visible;
+}
+
+.cardapio-item:hover .produto-foto {
+    /* Pequeno zoom na imagem (opcional, mas comum para este efeito) */
+    transform: scale(1.05);
+}
+
+.cardapio-item:hover .overlay-nome,
+.cardapio-item:hover .overlay-preco {
+    transform: translateY(0); /* Volta à posição original */
+    opacity: 1; /* Torna o texto visível */
+}
+
+
+/* ---------------------------------- */
+/* 2. TÍTULO E DESTAQUE */
+/* ---------------------------------- */
+
+.titulo-cardapio {
+    margin-bottom: 40px;
+    position: relative;
+    display: inline-block;
+}
+
+.titulo-cardapio .aprecie {
+    color: var(--cor-texto-claro);
+    font-size: 16px;
+    margin-bottom: 5px;
+    letter-spacing: 2px;
+}
+
+.titulo-cardapio h1 {
+    font-size: 56px;
+    color: var(--cor-texto-claro);
+    font-weight: bold;
+    letter-spacing: 4px;
+    line-height: 1.2;
+    position: relative;
+    padding: 10px 0;
+}
+
+.titulo-cardapio h1 span {
+    color: var(--cor-vermelho-titulo); /* Usa o vermelho do detalhe para destaque */
+}
+
+.titulo-cardapio h1 img {
+    /* REMOVER: position: absolute; */
+    /* REMOVER: margin-right: -455px; */
+    /* REMOVER: left: -20%; */
+    
+    /* DEFINIÇÃO DA ALTURA E LARGURA */
+    width: var(--largura-detalhe);
+    height: var(--altura-detalhe); /* AQUI VOCÊ CONTROLA A ALTURA */
+    object-fit: contain; /* Garante que a imagem se ajuste sem distorcer */
+}
+
+/* 3. ESPELHAMENTO */
+
+/* LADO ESQUERDO: Espelhado */
+.detalhe-esq {
+    /* O SEGREDO DO ESPELHAMENTO */
+    transform: scaleX(-1); 
+}
+
+/* LADO DIREITO: Normal */
+.detalhe-dir {
+    /* Sem transformação */
+    transform: none; 
+}
+
+
+/* ---------------------------------- */
+/* 3. NAVEGAÇÃO (FILTROS/ABAS) */
+/* ---------------------------------- */
+
+.menu-nav {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    margin-bottom: 50px;
+    padding: 10px 0;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1); /* Linha divisória sutil */
+}
+
+.menu-tab {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-decoration: none;
+    color: var(--cor-texto-claro);
+    font-weight: 600;
+    font-size: 14px;
+    transition: color 0.3s ease;
+    padding-bottom: 10px;
+    position: relative;
+}
+
+.menu-tab img {
+    width: 30px;
+    height: 30px;
+    margin-bottom: 8px;
+    /* Ícones são brancos/verde. Usamos filtros para simular a mudança de cor no hover */
+    filter: brightness(0) invert(1); /* Torna a imagem branca */
+    transition: filter 0.3s ease;
+}
+
+/* Estilo para a aba ATIVA (BURGER, conforme a imagem) */
+.menu-tab.active,
+.menu-tab:hover {
+    color: var(--cor-laranja-hover); /* Destaque em laranja/amarelo */
+}
+
+.menu-tab.active img {
+    /* Simula a mudança do ícone para a cor hover (assumindo que o ícone hover é laranja/preto no arquivo) */
+    filter: saturate(10) hue-rotate(20deg); /* Exemplo de filtro para cor próxima ao laranja/amarelo */
+}
+
+/* Linha de sublinhado da aba ativa (conforme a imagem) */
+.menu-tab .underline {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 3px;
+    background-color: transparent;
+    transition: background-color 0.3s ease;
+}
+
+.menu-tab.active .underline {
+    background-color: var(--cor-laranja-hover); /* Sublinhado na cor de destaque */
+}
+
+/* ---------------------------------- */
+/* 4. EXIBIÇÃO DOS PRODUTOS */
+/* ---------------------------------- */
+
+.cardapio-produtos {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); /* 3 colunas, como na imagem */
+    gap: 30px;
+    padding-bottom: 50px;
+}
+
+.cardapio-item {
+    background: rgba(0, 0, 0, 0.3); /* Fundo sutil para a caixa do produto */
+    border-radius: 5px;
+    overflow: hidden;
+    position: relative;
+    text-align: center;
+}
+
+.cardapio-item .produto-foto {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+.cardapio-item .produto-nome {
+    position: absolute;
+    bottom: 15px;
+    left: 15px;
+    color: white;
+    background: rgba(0, 0, 0, 0.6);
+    padding: 5px 10px;
+    font-size: 15px;
+    font-weight: bold;
+    text-transform: uppercase;
+    transition: transform 0.4s ease;
+    
+}
+
+.cardapio-item:hover .produto-nome {
+    transform: translateY(-5px); /* Move 5px para cima */
+}
+
+/* ---------------------------------- */
+/* 5. ELEMENTOS DECORATIVOS (BORDAS) */
+/* ---------------------------------- */
+
+.detalhe {
+    position: absolute;
+    z-index: 1;
+    pointer-events: none;
+    transition: transform 0.2s ease-out;
+}
+
+.tomate-esq {
+    /* Tomate no canto superior esquerdo */
+    top: 900px;
+    left: 20px;
+    width: 120px;
+}
+
+.alface-dir {
+    /* Alface no canto direito inferior */
+    bottom: -1045px;
+    right: -10px;
+    width: 500px;
+    
+}
+
+.redondo-dir {
+   bottom: -235px;
+    right: -10px;
+    width: 175px;
+
+}
+
+
+/* ================================== */
+/* 5. SEÇÃO UNIDADES/LOCALIZAÇÃO - AJUSTES GERAIS E FUNDO */
+/* ================================== */
+
+.unidades-secao {
+    /* Pegadas (topo esquerda) e Textura (repeat ou cover) */
+    /* Assumindo que você está usando a imagem da pegada (pegadas.png) */
+    background: url('../img/tracks-296631_1280.webp') no-repeat left -50px top 50px, /* CHAVE: Posiciona as pegadas na esquerda */
+                url('../imagemmm/bg-body.jpg') no-repeat center center; /* Mantém a textura para repetir se for pequena (tile) */
+    
+    /* CHAVE: Ajuste de background-size para as duas camadas */
+    background-size: 200px auto, /* Tamanho visível para as pegadas */
+                     auto;       /* Textura no tamanho original, para não pixelizar no repeat */
+                     
+    background-color: white; /* Cor de fallback */
+    padding: 80px 0;
+    position: relative;
+    overflow: hidden; 
+    z-index: 1;
+}
+
+/* O restante do seu CSS abaixo não precisa de alteração */
+
+/* O restante do seu CSS abaixo não precisa de alteração: */
+
+.unidades-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+    
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: relative;
+}
+
+/* ---------------------------------- */
+/* CONTEÚDO (TEXTO E BOTÃO) */
+/* ---------------------------------- */
+
+.unidades-conteudo {
+    /* CHAVE: Alinhamento para a esquerda */
+    text-align: center; 
+    /* max-width pode ser ajustado, mas 450px está ok */
+    max-width: 450px;
+    z-index: 2;
+    /* Adicionar margem ou flex-grow para ocupar o espaço necessário */
+    width: 50%; 
+    padding-right: 20px; /* Espaçamento entre o texto e a imagem */
+}
+
+.unidades-subtitulo {
+    color: #444; /* Cor escura, mas não totalmente preta */
+    font-size: 16px;
+    letter-spacing: 1px;
+    margin-bottom: 5px;
+}
+
+.unidades-titulo {
+    color: #222;
+    font-size: 28px;
+    font-weight: 300; /* Mais fino */
+    margin-bottom: 5px;
+}
+
+.unidades-titulo-destaque {
+    color: var(--cor-vermelho-titulo); /* Usa uma cor de destaque, como o vermelho/laranja */
+    font-size: 60px;
+    font-weight: bold;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    margin-bottom: 10px;
+    line-height: 1;
+}
+
+/* ---------------------------------- */
+/* IMAGEM (PINGUIM E PEGADAS) */
+/* ---------------------------------- */
+
+.unidades-pinguim {
+    /* Não precisa mais de 100% de width, ajuste para 50% */
+    position: relative;
+    width: 50%; /* Ocupa a metade direita */
+    overflow: hidden; 
+    text-align: right; /* Alinha a imagem dentro da div para a direita */
+    z-index: 1;
+}
+
+.pinguim-foto {
+    /* Ajusta a imagem dentro do container (agora a Terra) */
+    width: 100%; /* Permite que a imagem da Terra ocupe o espaço */
+    height: auto;
+    display: block;
+    /* Remova as margens negativas (margin-left: -10%) */
+    margin-left: 10; 
+    margin-top: 0;
+    animation: spin 30s linear infinite;
+}
+
+
+/* ---------------------------------- */
+/* PEGADAS (Usando a imagem pegadas.png) */
+/* ---------------------------------- */
+.unidades-secao {
+    /* Adiciona a imagem das pegadas como um fundo */
+    background: rgb(255, 255, 255) url('imagemmm/bg-body.jpg') repeat, 
+                url('imagemmm/bg-body.jpg') no-repeat right 50px top 50px; /* Alinhe a imagem aqui */
+    background-size: auto, 10px; /* Ajuste o tamanho das pegadas */
+    z-index: 2;
+}
+
+/* ---------------------------------- */
+/* BOTÃO (Reutiliza a classe btn-principal) */
+/* ---------------------------------- */
+
+.btn-principal {
+    display: inline-block;
+    padding: 12px 30px;
+    background-color: transparent;
+    border: 2px solid #222; /* Borda escura, como na imagem */
+    color: #222;
+    text-decoration: none;
+    font-weight: bold;
+    letter-spacing: 1px;
+    border-radius: 70px;
+    transition: all 0.3s ease;
+}
+
+.btn-principal:hover {
+    background-color: #222;
+    color: white;
+}
+
+/* ================================== */
+/* ANIMAÇÃO DE FLUTUAÇÃO (FLOAT) */
+/* ================================== */
+
+@keyframes spin {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}
+/* E depois aplique na .pinguim-foto: */
+/* animation: spin 30s linear infinite; */
+
+/* ================================== */
+/* 6. RODAPÉ (FOOTER) */
+/* ================================== */
+
+/* --- TOPO (Newsletter) --- */
+.rodape-topo {
+    background-color: var(--cor-vermelho-titulo); /* Fundo vermelho/vinho */
+    padding: 15px 0;
+    text-align: center;
+}
+
+.container-newsletter {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: center; /* Centraliza o conteúdo */
+    align-items: center;
+    padding: 0 20px;
+}
+
+.newsletter-titulo {
+    color: white;
+    font-size: 16px;
+    font-weight: bold;
+    margin-right: 30px;
+    letter-spacing: 1px;
+}
+
+.newsletter-form {
+    display: flex;
+    gap: 10px;
+}
+
+.newsletter-form input[type="email"] {
+    padding: 5px 10px;
+    border: none;
+    background: transparent;
+    border-bottom: 1px solid white; /* Linha de input branca */
+    color: white;
+    font-size: 14px;
+    width: 250px;
+    outline: none;
+}
+
+.newsletter-form input[type="email"]::placeholder {
+    color: rgba(255, 255, 255, 0.7);
+}
+
+.newsletter-form button {
+    background: transparent;
+    border: none;
+    color: white;
+    font-size: 14px;
+    font-weight: bold;
+    cursor: pointer;
+    padding: 5px 10px;
+    transition: color 0.3s;
+}
+
+.newsletter-form button:hover {
+    color: #ccc;
+}
+
+/* --- CORPO (Links e Colunas) --- */
+.rodape-corpo {
+    /* O fundo é a textura escura */
+    background: #1a1a1a url('bg-rodape.jpg') repeat; 
+    padding: 50px 0;
+}
+
+.container-corpo {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+    display: flex;
+    justify-content: space-between;
+    text-align: left;
+}
+
+.coluna {
+    width: 20%;
+}
+
+.coluna-titulo {
+    color: white;
+    font-size: 18px;
+    margin-bottom: 20px;
+    text-transform: uppercase;
+    font-weight: bold;
+}
+
+.lista-links {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.lista-links li {
+    margin-bottom: 8px;
+}
+
+.lista-links a {
+    color: #aaa; /* Cor cinza claro para os links */
+    text-decoration: none;
+    font-size: 14px;
+    transition: color 0.3s;
+}
+
+.lista-links a:hover {
+    color: white;
+}
+
+/* --- Redes Sociais --- */
+.icones-sociais {
+    display: flex;
+    gap: 15px;
+}
+
+.social-icon {
+    display: block;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    background-color: white; /* Círculo branco de fundo */
+    /* Adicione aqui as imagens de fundo para cada ícone (Facebook, Instagram, Youtube) */
+    /* Exemplo: 
+    &.facebook { background: white url('img/icone-facebook.png') no-repeat center center; background-size: 16px; }
+    */
+    /* Usando CSS puro para os ícones */
+    border: 1px solid white; 
+    position: relative;
+}
+
+/* Nota: Para replicar os ícones como na imagem, você precisará das imagens dos ícones ou de uma fonte de ícones (como Font Awesome). */
+
+
+/* --- BASE (Direitos Autorais) --- */
+.rodape-base {
+    background-color: black; 
+    border-top: 1px solid #333; /* Linha de separação */
+    padding: 15px 0;
+    text-align: center;
+}
+
+.container-base {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.direitos {
+    color: white;
+    font-size: 12px;
+    margin: 0;
+}
+
+/* --- RODAPÉ LEGAL --- */
+.rodape-legal {
+    background-color: #f7f7f7; /* Fundo cinza claro/branco */
+    padding: 20px 0;
+    text-align: center;
+}
+
+.container-legal {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.rodape-legal p {
+    color: #666; /* Texto cinza escuro */
+    font-size: 11px;
+    line-height: 1.5;
+    margin: 0;
+}
+/* ================================== */
+/* 7. exibir diferentes seções do cardápio */
+/* ================================== */
+/* Oculta todas as seções de produtos por padrão */
+.cardapio-produtos {
+    display: none; 
+    opacity: 0; /* Começa totalmente transparente */
+    transition: opacity 0.5s ease-in-out; /* Adiciona a transição suave de 0.5 segundos */
+    
+    /* Mantenha seu display original (grid, flex ou block) para quando estiver ativo */
+    /* Exemplo: */
+    /* display: grid; */ 
+    /* grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); */
+    /* gap: 20px; */
+}
+
+/* 1. Usaremos esta classe para forçar a exibição (display: block/grid/flex) */
+.cardapio-produtos.visible {
+    display: grid; /* Use o display que você usa para organizar os itens (ex: grid ou flex) */
+    opacity: 0; /* Continua transparente, mas já ocupa espaço no layout */
+}
+
+/* 2. Usaremos esta classe para a animação de aparecer (opacity: 1) */
+.cardapio-produtos.active-content {
+    display: grid; /* O display deve ser o mesmo que em .visible */
+    opacity: 1; /* Transiciona para totalmente visível */
+}
+
+/*
+Explicação:
+- cardapio-produtos: Oculto (display: none, opacity: 0).
+- visible: Ativa o display (grid/flex), mas mantém a opacidade 0. Isso resolve o problema de animação do 'display: none'.
+- active-content: Força a opacidade para 1. O CSS faz a transição suave de 0 para 1.
+*/
+
+/* Garante que a aba ativa tenha o visual de 'ativa' */
+.menu-tab {
+    /* ... seus estilos existentes ... */
+}
+
+.menu-tab.active {
+    /* Estilos que indicam que a aba está ativa (cor, sublinhado, etc.) */
+    color: #ff9900; /* Exemplo: Mudar a cor do texto */
+}
+
+.menu-tab .underline {
+    /* Estilo para o sublinhado que aparece */
+    display: none; /* Oculta por padrão */
+}
+
+.menu-tab.active .underline {
+    display: block; /* Exibe se a aba estiver ativa */
+    /* Outros estilos para a linha: altura, cor, etc. */
+}

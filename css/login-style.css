@@ -1,0 +1,78 @@
+/* CSS ESPECÍFICO DESTA PÁGINA (PODE SER MOVIDO PARA O style.css) */
+        /* Usei a classe de fundo do rodapé para manter a coerência visual */
+        .login-body {
+            background: var(--cor-preto-quadro) url('../imagemmm/bg-rodape.jpg') repeat; /* Fundo escuro */
+            height: 100vh;
+            margin: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: white;
+        }
+
+        .login-card {
+            background: rgba(0, 0, 0, 0.8); /* Fundo escuro transparente */
+            padding: 40px;
+            border-radius: 8px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
+            width: 100%;
+            max-width: 400px;
+            text-align: center;
+        }
+
+        .login-card h2 {
+            font-size: 30px;
+            color: var(--cor-laranja-hover); /* Destaque laranja/amarelo */
+            margin-bottom: 30px;
+        }
+
+        .input-group {
+            margin-bottom: 20px;
+            text-align: left;
+        }
+
+        .input-group label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: 500;
+        }
+
+        .input-group input {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #444;
+            border-radius: 4px;
+            background-color: #333;
+            color: white;
+            box-sizing: border-box;
+            font-size: 16px;
+        }
+
+        /* Reutiliza a classe btn-principal (você deve ter ela no seu style.css) */
+        .btn-acessar {
+            width: 100%;
+            padding: 12px;
+            margin-top: 10px;
+            font-size: 13px;
+            border-radius: 4px;
+            text-transform: uppercase;
+            /* Estilo do botão principal laranja/amarelo */
+            background-color: var(--cor-laranja-hover, #ff9900);
+            border: 2px solid var(--cor-laranja-hover, #ff9900);
+            color: #222;
+            font-weight: bold;
+            cursor: pointer;
+            transition: background-color 0.3s, color 0.3s;
+        }
+
+        .btn-acessar:hover {
+            background-color: #f7b731; /* Cor um pouco mais clara no hover */
+        }
+        
+        /* NOVO: Estilo da Mensagem de Erro */
+        .error-message {
+            color: #ff6b6b; /* Vermelho para erro */
+            margin-top: 15px;
+            font-weight: bold;
+            display: none; /* Começa escondida */
+        }

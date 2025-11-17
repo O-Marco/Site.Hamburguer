@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Área do Dono - Login</title>
+    <link rel="stylesheet" href="css/style.css"> 
+    <link rel="stylesheet" href="css/login-style.css"> 
+</head>
+<body class="login-body">
+
+    <div class="login-card">
+        <h2>Área do Dono</h2>
+
+        <img src="imagemmm/icone-franqueado.png" alt="Ícone de Acesso" style="width: 40px; margin-bottom: 15px; filter: brightness(0) invert(1) hue-rotate(20deg);">
+
+        <form id="login-form" action="dashboard.html" method="GET">
+            <div class="input-group">
+                <label for="usuario">Usuário / E-mail</label>
+                <input type="text" id="usuario" name="usuario" required>
+            </div>
+
+            <div class="input-group">
+                <label for="senha">Senha</label>
+                <input type="password" id="senha" name="senha" required>
+            </div>
+            
+            <button type="submit" class="btn-acessar">Acessar Painel</button>
+            
+            <p id="error-message" class="error-message"></p>
+        </form>
+        
+        <p style="margin-top: 20px; font-size: 14px;">
+            <a href="#" style="color: var(--cor-laranja-hover); text-decoration: none;">Esqueceu sua senha?</a>
+        </p>
+    </div>
+
+    <script src="js/login.js"></script>
+</body>
+</html>
