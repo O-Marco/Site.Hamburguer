@@ -2,6 +2,10 @@
 
 Este é o repositório front-end do **LanchesMais**, uma plataforma completa para gerenciamento de unidades de franquia. Construído com HTML e CSS puro (com previsão de integração com JavaScript/Backend).
 
+## ✨ Inspiração
+
+O design, a estrutura de menu e a experiência de usuário foram **inspirados na rede de franquias Le Pingué**.
+
 ## 🌟 Recursos Principais
 
 O projeto é dividido em duas áreas principais:
